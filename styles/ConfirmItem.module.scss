@@ -1,0 +1,33 @@
+.wrapper {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  span {
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: left;
+    flex: 1;
+  }
+  .icon {
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+
+  .colorDiv {
+    width: 5rem;
+    max-width: 5rem;
+    height: 2rem;
+  }
+  .colorSpan {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
