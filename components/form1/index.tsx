@@ -5,7 +5,7 @@ import FormGroup from "../formgroup";
 import classes from "../../styles/Form1.module.scss";
 import { firstFormSchema } from "../../formik-utils/validationSchema";
 import { firstForminitialvalues } from "../../formik-utils/initialValues";
-
+import { motion } from "framer-motion";
 import { Values, Methods } from "../../interface/index";
 
 interface HandleForm1 {
@@ -22,7 +22,27 @@ const Form1: FC<Form1Props> = ({ handleNext, handleForm1, values }) => {
   };
 
   return (
-    <div className={classes.container}>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {
+          x: -100,
+          opacity: 0,
+        },
+        visible: {
+          x: 0,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            duration: 0.1,
+            bounce: 0.6,
+            damping: 11,
+          },
+        },
+      }}
+      className={classes.container}
+    >
       <Formik
         validationSchema={firstFormSchema}
         onSubmit={onSubmitHandler}
@@ -87,7 +107,7 @@ const Form1: FC<Form1Props> = ({ handleNext, handleForm1, values }) => {
           </form>
         )}
       </Formik>
-    </div>
+    </motion.div>
   );
 };
 

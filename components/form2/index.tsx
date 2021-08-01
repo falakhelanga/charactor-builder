@@ -8,6 +8,7 @@ import { useState } from "react";
 import { occupationOptions as options } from "../../formik-utils/options";
 import { Values, Methods } from "../../interface/index";
 import { secondFormInitialvalues } from "../../formik-utils/initialValues";
+import { motion } from "framer-motion";
 
 interface HandleForm2 {
   handleForm2: any;
@@ -30,7 +31,27 @@ const Form2: FC<Form2Props> = ({
     handleNext();
   };
   return (
-    <div className={classes.container}>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {
+          x: -100,
+          opacity: 0,
+        },
+        visible: {
+          x: 0,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            duration: 0.1,
+            bounce: 0.6,
+            damping: 11,
+          },
+        },
+      }}
+      className={classes.container}
+    >
       <Formik
         validationSchema={secondFormSchema}
         onSubmit={onSubmitHandler}
@@ -112,7 +133,7 @@ const Form2: FC<Form2Props> = ({
           </form>
         )}
       </Formik>
-    </div>
+    </motion.div>
   );
 };
 

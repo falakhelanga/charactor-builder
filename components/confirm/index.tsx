@@ -3,6 +3,7 @@ import Button from "../button";
 import ConfirmItem from "../confirm-item";
 import classes from "../../styles/Confirm.module.scss";
 import { Methods, Values } from "../../interface/index";
+import {motion} from 'framer-motion'
 
 type ConfirmProps = Methods & Values;
 
@@ -16,7 +17,27 @@ const Confirm: FC<ConfirmProps> = ({
     handleEdit(1);
   };
   return (
-    <div className={classes.wrapper}>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {
+          x: -100,
+          opacity: 0,
+        },
+        visible: {
+          x: 0,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            duration: 0.1,
+            bounce: 0.6,
+            damping: 11,
+          },
+        },
+      }}
+      className={classes.wrapper}
+    >
       <ConfirmItem
         field="Name"
         name={values.name}
@@ -63,7 +84,7 @@ const Confirm: FC<ConfirmProps> = ({
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
