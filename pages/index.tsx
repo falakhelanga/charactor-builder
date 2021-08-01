@@ -40,9 +40,12 @@ export default function Home() {
         <div className={styles.container}>
           <Form2
             values={{
-              dob: charInfo.dob,
+              name: charInfo.name,
+              surname: charInfo.surname,
+              gender: charInfo.gender,
               occupation: charInfo.occupation,
               color: charInfo.color,
+              dob: charInfo.dob,
             }}
             handleForm2={handleForm2}
             handleNext={handleNext}

@@ -12,7 +12,7 @@ export interface Values {
 }
 
 export interface Methods {
-  handleNext: any;
-  handleBack: any;
-  handleEdit: any;
+  handleNext?: any;
+  handleBack?: any;
+  handleEdit?: any;
 }
