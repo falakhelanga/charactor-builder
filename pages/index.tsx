@@ -79,6 +79,9 @@ export default function Home() {
               name: charInfo.name,
               surname: charInfo.surname,
               gender: charInfo.gender,
+              occupation: charInfo.occupation,
+              color: charInfo.color,
+              dob: charInfo.dob,
             }}
             handleForm1={handleForm1}
           />
